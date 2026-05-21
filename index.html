@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PedeLanche - Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">PL</div>
+        <div>
+          <h1>PedeLanche</h1>
+          <span>Cantina escolar</span>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <a class="active" href="#">🏠 Início</a>
+        <a href="#produtos">🍔 Cardápio</a>
+        <a href="#carrinho">🛒 Carrinho</a>
+        <a href="#pedido">📦 Pedido</a>
+        <a href="#perfil">👤 Perfil</a>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <header class="header" id="perfil">
+        <div>
+          <p class="welcome">Olá, Abraão</p>
+          <h2>O que você quer pedir hoje?</h2>
+          <p class="class-info">Turma: <strong>1º Ano</strong></p>
+        </div>
+
+        <div class="student-box">
+          <div>
+            <span>Saldo disponível</span>
+            <strong id="saldoAluno">R$ 35,00</strong>
+          </div>
+          <div class="avatar">A</div>
+        </div>
+      </header>
+
+      <section class="hero-cards">
+        <article class="main-card">
+          <div class="card-icon">📋</div>
+          <div>
+            <h3>Ver Cardápio</h3>
+            <p>Escolha seu lanche sem enfrentar fila.</p>
+          </div>
+          <a href="#produtos" class="card-button">Abrir</a>
+        </article>
+
+        <article class="main-card green-card">
+          <div class="card-icon">⏱️</div>
+          <div>
+            <h3>Acompanhar Pedido</h3>
+            <p>Veja quando o pedido ficar pronto.</p>
+          </div>
+          <a href="#pedido" class="card-button">Ver pedido</a>
+        </article>
+      </section>
+
+      <section class="grid-layout">
+        <div class="left-column">
+          <section class="panel" id="pedido">
+            <div class="section-title">
+              <div>
+                <span>Pedido atual</span>
+                <h3>Código #PD-4821</h3>
+              </div>
+              <button class="details-btn" onclick="mostrarDetalhes()">Ver detalhes</button>
+            </div>
+
+            <div class="status-box">
+              <div class="status-line active" id="statusRecebido">
+                <span></span>
+                Pedido recebido
+              </div>
+              <div class="status-line active" id="statusPreparo">
+                <span></span>
+                Em preparo
+              </div>
+              <div class="status-line" id="statusPronto">
+                <span></span>
+                Pronto para retirada
+              </div>
+            </div>
+
+            <div class="order-footer">
+              <p><strong id="filaPedidos">3</strong> pedidos na sua frente</p>
+              <button class="primary-btn" onclick="atualizarStatusPedido()">Atualizar status</button>
+            </div>
+          </section>
+
+          <section class="panel" id="produtos">
+            <div class="section-title">
+              <div>
+                <span>Produtos rápidos</span>
+                <h3>Mais pedidos no intervalo</h3>
+              </div>
+            </div>
+
+            <div class="product-list" id="listaProdutos"></div>
+          </section>
+        </div>
+
+        <aside class="cart panel" id="carrinho">
+          <div class="section-title">
+            <div>
+              <span>Seu carrinho</span>
+              <h3>Resumo do pedido</h3>
+            </div>
+          </div>
+
+          <div id="itensCarrinho" class="cart-items empty-cart">
+            Nenhum produto adicionado.
+          </div>
+
+          <div class="cart-total">
+            <span>Total</span>
+            <strong id="totalCarrinho">R$ 0,00</strong>
+          </div>
+
+          <button class="checkout-btn" onclick="finalizarPedido()">Finalizar pedido</button>
+          <p class="cart-note">Pagamento pelo saldo do aluno.</p>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
